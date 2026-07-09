@@ -7,22 +7,23 @@ export default function ProductCard({ product }: { product: Product }) {
   return (
     <Link
       href={routes.productId(product.id)}
-      className=" rounded-lg border-2 border-brown"
+      className=" relative rounded-lg group border-2 flex flex-col justify-between  border-brown"
     >
       <Image
         src={product.thumbnail}
         alt={product.title}
-        width={300}
-        height={300}
+        width={200}
+        height={200}
+        className="group-hover:scale-95 mx-auto object-contain bg-white w-full rounded-t-md h-full transition-transform duration-300"
       />
-
-      <div className="flex flex-col gap-2 p-3 bg-green text-white ">
+      <div className="absolute top-2 right-2">
+        <div className="flex items-center justify-center bg-coral text-white rounded-full px-2 py-1">
+          <h6>★ {product.rating.toFixed(1)}</h6>
+        </div>
+      </div>
+      <div className="flex flex-col gap-2 p-3 bg-green rounded-b-md group-hover:bg-green-700 transition-colors duration-300 text-white ">
         <div className="flex items-center justify-between">
           <h5 className="">{product.title}</h5>
-
-          <div className="flex items-center justify-center bg-coral text-white rounded-full px-2 py-1">
-            <h6>★ {product.rating}</h6>
-          </div>
         </div>
         <h5>${product.price}</h5>
       </div>

@@ -9,12 +9,13 @@ export async function getProducts(limit = 5) {
   return res.json();
 }
 
-export async function getCategories() {
+export async function getCategories(limit = 10) {
   const res = await fetch(`${API_URL}/categories`, {
     next: { revalidate: 86400 }, // 1 day
   });
   if (!res.ok) throw new Error("Failed to load categories");
-  return res.json();
+  const data = await res.json();
+  return data.slice(0, limit);
 }
 
 //product detail page apis

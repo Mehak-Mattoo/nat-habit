@@ -1,9 +1,6 @@
-import React from 'react'
+import { PageSkeleton } from "@/components/skeleton/Skeleton";
 
 const loading = () => {
-  return (
-    <div>loading</div>
-  )
-}
-
-export default loading
+  return <PageSkeleton variant="home" />;
+};
+export default loading;
