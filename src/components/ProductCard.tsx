@@ -14,12 +14,12 @@ export default function ProductCard({ product }: { product: Product }) {
         width={300}
         height={300}
       />
-      <h3 className="font-medium">{product.title}</h3>
+
+      <div className="flex items-center justify-between">
+        <h5 className="">{product.title}</h5>
+        <p className=" text-yellow-600">★ {product.rating}</p>
+      </div>
       <p>${product.price}</p>
-      <p className="text-sm text-yellow-600">★ {product.rating}</p>
     </Link>
   );
 }
-
-
-

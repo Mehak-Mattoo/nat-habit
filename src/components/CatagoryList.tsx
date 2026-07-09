@@ -6,12 +6,12 @@ export default function CategoryList({
   return (
     <div className="flex flex-wrap gap-2">
       {categories.map((c) => (
-        <span
+        <h6
           key={c.slug}
-          className="px-3 py-1 bg-gray-100 rounded-full text-sm"
+          className="px-3 py-1 bg-amber-800 rounded-full "
         >
           {c.name}
-        </span>
+        </h6>
       ))}
     </div>
   );
