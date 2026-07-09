@@ -28,13 +28,15 @@ export default async function ProductDetailPage({ params }: Props) {
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <h1 className="font-bold">{product.title}</h1>
-          <p className="text-yellow-600">★ {product.rating}</p>
+          <div className="flex items-center justify-center bg-coral text-white rounded-full px-2 py-1">
+            <h6>★ {product.rating}</h6>
+          </div>
         </div>
+          <span className="font-medium">Category:</span> {product.category}
         <p className="text-zinc-600">{product.description}</p>
         <p>
-          <span className="font-medium">Category:</span> {product.category}
         </p>
-        <h4 className="text-2xl font-semibold">${product.price}</h4>
+        <h4 className=" font-semibold">${product.price}</h4>
 
         {/* live stock (client component) */}
         <StockBadge productId={product.id} initialStock={product.stock} />

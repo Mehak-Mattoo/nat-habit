@@ -8,7 +8,7 @@ export default function CategoryList({
       {categories.map((c) => (
         <h6
           key={c.slug}
-          className="px-3 py-1 bg-amber-800 rounded-full "
+          className="px-3 py-1 bg-brown text-white rounded-full "
         >
           {c.name}
         </h6>

@@ -10,16 +10,18 @@ export default function StockBadge({
   productId: number;
   initialStock: number;
 }) {
-  const { data: stock = initialStock, isLoading } = useQuery(
+  const { data: stock = initialStock, isLoading , error } = useQuery(
     stockQuery(productId),
   );
 
   if (isLoading) return <p>Checking stock...</p>;
 
+  if (error) return <p>Error: {(error as Error).message}</p>;
+
   return (
     <p>
       <span className="font-medium">Stock:</span>{" "}
-      {stock > 0 ? `${stock} available` : "Out of stock"}
+      {stock > 0 ? `${stock} left` : "Out of stock"}
     </p>
   );
 }

@@ -14,7 +14,7 @@ export default async function Home() {
       .slice(0, 4);
 
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+    <div className="flex flex-col flex-1 items-center justify-center font-sans">
       <main className="max-w-6xl mx-auto p-4 space-y-8">
         <CategoryList categories={categories} />
 
