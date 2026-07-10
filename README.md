@@ -1,6 +1,8 @@
 # Nat Habit — Scalable Product Discovery Storefront
 
 A production-oriented e-commerce storefront built with **Next.js (App Router)**, **React**, **TypeScript**, and **TanStack Query**. The app consumes the [DummyJSON Products API](https://dummyjson.com/docs/products) and is designed with scale, SEO, caching, and Core Web Vitals in mind.
+<img width="959" height="371" alt="Screenshot 2026-07-10 140017" src="https://github.com/user-attachments/assets/7919f258-f9e5-4fa1-a828-914d059fa7d2" />
+
 
 **Live demo:** [nat-habit.vercel.app]  
 **Repository:** https://github.com/Mehak-Mattoo/nat-habit
