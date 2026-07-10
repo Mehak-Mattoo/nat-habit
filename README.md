@@ -7,33 +7,6 @@ A production-oriented e-commerce storefront built with **Next.js (App Router)**,
 
 ---
 
-**Project Structure**
-
-src/
-├── app/
-│   ├── page.tsx                 # Homepage
-│   ├── loading.tsx              # Homepage skeleton
-│   ├── error.tsx                # Error boundary
-│   ├── not-found.tsx            # 404 page
-│   ├── search/page.tsx          # Search route
-│   ├── products/[id]/
-│   │   ├── page.tsx             # Product detail
-│   │   ├── loading.tsx
-│   │   └── not-found.tsx
-│   ├── layout.tsx               # Root layout + metadata
-│   └── providers.tsx            # React Query provider
-├── components/
-│   ├── ProductCard.tsx
-│   ├── ProductGrid.tsx
-│   ├── FeaturedProducts.tsx
-│   ├── SearchPage.tsx
-│   └── skeleton/Skeleton.tsx
-└── lib/
-    ├── api.ts                   # Server-side fetch (ISR)
-    ├── client-apis.ts           # Client-side fetch (TanStack Query)
-    ├── featuredProducts.ts      # Curated featured products
-    └── types.ts
-
 ## Features
 
 ### Homepage (`/`)

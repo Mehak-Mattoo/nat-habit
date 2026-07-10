@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
   const featured = featuredProducts.find((p) => p.id === Number(id));
   const title = featured?.title ?? product.title;
-  const description = (featured?.subtitle ?? product.description).slice(0, 160);
+  const description = (featured?.description ?? product.description).slice(0, 160);
   const image = featured?.image ?? product.thumbnail;
   return {
     title, // becomes "Fresh Netraa Eye Cream | Nat Habit"
@@ -43,7 +43,7 @@ export default async function ProductDetailPage({ params }: Props) {
   const title = featured?.title ?? product.title;
   const image = featured?.image ?? product.thumbnail;
   const price = featured?.price ?? product.price;
-  const subtitle = featured?.subtitle ?? product.description;
+  const description = featured?.description ?? product.description;
 
   return (
     <>
@@ -65,7 +65,7 @@ export default async function ProductDetailPage({ params }: Props) {
           </div>
           <span className="font-medium ">Category:</span>{" "}
           <span className="capitalize">{product.category}</span>
-          <p className="text-white/90 ">{subtitle}</p>
+          <p className=" ">{description}</p>
         
           <p className=" font-semibold">${price}</p>
           {/* live stock (client component) */}

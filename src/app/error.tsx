@@ -1,14 +1,17 @@
-'use client'
-import React from 'react'
+"use client";
 
-const error = ({ error }: { error: Error }) => {
-  console.log(error);
+export default function Error({
+  error,
+  reset,
+}: {
+  error: Error & { digest?: string };
+  reset: () => void;
+}) {
   return (
-    <div>
-        <h1>Error</h1>
-        <p>{error.message}</p>
+    <div className="max-w-6xl mx-auto p-8 text-center">
+      <h1>Something went wrong</h1>
+      <p>{error.message}</p>
+      <button onClick={() => reset()}>Try again</button>
     </div>
-  )
+  );
 }
-
-export default error
