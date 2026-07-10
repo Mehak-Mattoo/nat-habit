@@ -50,7 +50,9 @@ export default function SearchPage() {
     <main className="max-w-6xl mx-auto p-4 space-y-8">
       <div className="flex flex-1 w-full gap-2">
         <div className="relative flex-1">
-          {<Search className="absolute left-2 top-2.5 text-white/90 md:size-5 size-4" />}
+          {
+            <Search className="absolute left-2 top-2.5 text-white/90 md:size-5 size-4" />
+          }
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
@@ -79,7 +81,7 @@ export default function SearchPage() {
 
       {searchTerm && !isLoading && !isError && !!products.length && (
         <>
-          <p className="text-white/90">
+          <p className="text-foreground">
             {products.length} matching result(s) for <b>"{searchTerm}"</b>
           </p>
           <ProductGrid products={products} />
@@ -87,7 +89,7 @@ export default function SearchPage() {
       )}
 
       {searchTerm && !isLoading && !isError && !products.length && (
-        <p className="text-white/90">
+        <p className="text-foreground">
           No products found for <b>"{searchTerm}"</b>.
         </p>
       )}

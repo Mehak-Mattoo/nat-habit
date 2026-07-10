@@ -8,7 +8,7 @@ export default function FeaturedProducts() {
     <>
       <h2 className=" font-medium">Featured</h2>
       <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
-        {featuredProducts.map((product: FeaturedProduct) => (
+        {featuredProducts.map((product: FeaturedProduct, index: number) => (
           <Link
             key={product.id}
             href={routes.productId(product.id)}
@@ -19,17 +19,18 @@ export default function FeaturedProducts() {
                 src={product.image}
                 alt={product.title}
                 fill
+                priority={index === 0}
                 sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, 25vw"
                 className="object-contain w-full h-full group-hover:scale-95 transition-transform duration-300"
               />
             </div>
 
             <div className="absolute right-2 top-2">
-              <div className="flex items-center justify-center bg-coral text-white rounded-full px-2 py-1">
+              <div className="flex items-center justify-center bg-coral-dark text-white rounded-full px-2 py-1">
                 <span>Featured </span>
               </div>
             </div>
-            <div className="flex flex-col gap-2 p-3 bg-green/80 rounded-b-md group-hover:bg-green transition-colors duration-300 text-white ">
+            <div className="flex flex-col gap-2 p-3 bg-green-dark rounded-b-md group-hover:bg-green transition-colors duration-300 text-white ">
               <div className="flex items-center justify-between">
                 <p className="">{product.title}</p>
               </div>

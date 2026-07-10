@@ -11,8 +11,8 @@ const Navbar = () => {
                 <Image src="/icon.jpeg" alt="logo" width={40} height={40} className='rounded-full' />
             </Link>
             <nav className="flex items-center gap-4">
-                <Link href={routes.home} className='font-medium text-brown hover:text-amber-900'>Home</Link>
-                <Link href={routes.search} className=' font-medium text-brown hover:text-amber-900'>Search</Link>
+                <Link href={routes.home} className='font-medium text-brown-dark hover:text-brown'>Home</Link>
+                <Link href={routes.search} className=' font-medium text-brown-dark hover:text-brown'>Search</Link>
               
             </nav>
         </div>
