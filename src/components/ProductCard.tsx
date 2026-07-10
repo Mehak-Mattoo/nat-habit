@@ -19,18 +19,18 @@ export default function ProductCard({ product }: { product: Product }) {
         />
       </div>
       <div className="absolute top-2 right-2">
-        <div className="flex items-center justify-center bg-coral text-white rounded-full px-2 py-1">
-          <h6>{product.rating.toFixed(1)} ★ </h6>
+        <div className="flex items-center justify-center  bg-coral-dark text-white rounded-full px-2 py-1">
+          <p>{product.rating.toFixed(1)} ★ </p>
         </div>
       </div>
-      <div className="flex flex-col gap-2 p-3 bg-green/80 rounded-b-md group-hover:bg-green transition-colors duration-300 text-white ">
+      <div className="flex flex-col gap-2 p-3 bg-green-dark rounded-b-md group-hover:bg-green-dark transition-colors duration-300 text-white ">
         <div className="flex flex-col ">
-          <h5 className="">{product.title}</h5>
-          <h6 className=" text-white/90">
+          <p className="">{product.title}</p>
+          <p className=" text-foreground">
             {product.description.slice(0, 100)}...
-          </h6>
+          </p>
         </div>
-        <h5>${product.price}</h5>
+        <p className="text-xl font-semibold">${product.price}</p>
       </div>
     </Link>
   );

@@ -48,10 +48,11 @@ export default function SearchPage() {
 
   return (
     <main className="max-w-6xl mx-auto p-4 space-y-8">
+      <h1 className="sr-only">Search</h1>
       <div className="flex flex-1 w-full gap-2">
         <div className="relative flex-1">
           {
-            <Search className="absolute left-2 top-2.5 text-white/90 md:size-5 size-4" />
+            <Search className="absolute left-2 top-2.5 text-brown-dark md:size-5 size-4" />
           }
           <input
             value={input}

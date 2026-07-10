@@ -34,7 +34,7 @@ export default function FeaturedProducts() {
               <div className="flex items-center justify-between">
                 <p className="">{product.title}</p>
               </div>
-              <h5>${product.price}</h5>
+              <p>${product.price}</p>
             </div>
           </Link>
         ))}
