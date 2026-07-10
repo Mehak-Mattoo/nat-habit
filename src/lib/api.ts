@@ -9,7 +9,7 @@ export async function getProducts(limit = 5) {
   return res.json();
 }
 
-export async function getCategories(limit = 10) {
+export async function getCategories(limit = 9) {
   const res = await fetch(`${API_URL}/categories`, {
     next: { revalidate: 86400 }, // 1 day
   });

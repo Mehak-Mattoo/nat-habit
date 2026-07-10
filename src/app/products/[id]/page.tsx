@@ -4,10 +4,32 @@ import { getProductById } from "@/lib/api";
 import StockBadge from "@/components/products/Stockbadge";
 import { PageSkeleton } from "@/components/skeleton/Skeleton";
 import { featuredProducts } from "@/lib/featuredProducts";
+import { Metadata } from "next";
 
 type Props = {
   params: Promise<{ id: string }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params;
+  const product = await getProductById(id);
+  if (!product) {
+    return { title: "Product not found" };
+  }
+  const featured = featuredProducts.find((p) => p.id === Number(id));
+  const title = featured?.title ?? product.title;
+  const description = (featured?.subtitle ?? product.description).slice(0, 160);
+  const image = featured?.image ?? product.thumbnail;
+  return {
+    title, // becomes "Fresh Netraa Eye Cream | Nat Habit"
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [image],
+    },
+  };
+}
 
 export default async function ProductDetailPage({ params }: Props) {
   const { id } = await params;
@@ -21,7 +43,7 @@ export default async function ProductDetailPage({ params }: Props) {
   const title = featured?.title ?? product.title;
   const image = featured?.image ?? product.thumbnail;
   const price = featured?.price ?? product.price;
-  const subtitle = featured?.subtitle ?? product.subtitle;
+  const subtitle = featured?.subtitle ?? product.description;
 
   return (
     <>
