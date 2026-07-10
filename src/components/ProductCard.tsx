@@ -18,10 +18,10 @@ export default function ProductCard({ product }: { product: Product }) {
       />
       <div className="absolute top-2 right-2">
         <div className="flex items-center justify-center bg-coral text-white rounded-full px-2 py-1">
-          <h6>★ {product.rating.toFixed(1)}</h6>
+          <h6>{product.rating.toFixed(1)} ★ </h6>
         </div>
       </div>
-      <div className="flex flex-col gap-2 p-3 bg-green rounded-b-md group-hover:bg-green-700 transition-colors duration-300 text-white ">
+      <div className="flex flex-col gap-2 p-3 bg-green/80 rounded-b-md group-hover:bg-green transition-colors duration-300 text-white ">
         <div className="flex items-center justify-between">
           <h5 className="">{product.title}</h5>
         </div>

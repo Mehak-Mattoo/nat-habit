@@ -10,8 +10,9 @@ export const stockQuery = (productId: number) => ({
 export const searchQuery = (q: string) => ({
   queryKey: ["search", q],
   queryFn: () => searchProducts(q),
-  staleTime: 0,
-  enabled: q.length > 0,
+  staleTime: 2 * 60 * 1000,
+  gcTime: 10 * 60 * 1000,
+  enabled: q.trim().length >= 2,
 }); 
 
 export async function fetchProductStock(productId: number) {

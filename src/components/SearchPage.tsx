@@ -5,6 +5,9 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import ProductGrid from "@/components/ProductGrid";
 import { searchQuery } from "@/lib/client-apis";
+import FeaturedProducts from "./FeaturedProducts";
+import { Search, X } from "lucide-react";
+import { routes } from "@/lib/routes";
 
 export default function SearchPage() {
   const router = useRouter();
@@ -17,57 +20,75 @@ export default function SearchPage() {
     setInput(searchTerm);
   }, [searchTerm]);
 
-  const { data, isFetching, isError, error } = useQuery({
+  const { data, isLoading, isError, error } = useQuery({
     ...searchQuery(searchTerm),
     placeholderData: (prev) => prev, // show the previous results until the new ones arrive.
   });
 
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    const trimmed = input.trim();
-    router.push(trimmed ? `/search?q=${encodeURIComponent(trimmed)}` : "/search");
-  }
+  useEffect(() => {
+    const trimmedInput = input.trim();
 
-  const products = data?.products ;
+    const timer = setTimeout(() => {
+      const current = searchParams.get("q") ?? "";
+
+      // only update URL if it actually changed
+      if (trimmedInput === current) return;
+
+      router.replace(
+        trimmedInput
+          ? `${routes.search}?q=${encodeURIComponent(trimmedInput)}`
+          : routes.search,
+      );
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [input, router, searchParams]);
+
+  const products = data?.products ?? [];
 
   return (
-    <main className="max-w-6xl mx-auto p-4 space-y-6">
-      <h1 className="text-2xl font-semibold">Search</h1>
+    <main className="min-w-screen-lg mx-auto p-4 space-y-6">
+      <div className="flex flex-1 w-full gap-2">
+        <div className="relative flex-1">
+          {<Search className="absolute left-2 top-2.5 text-zinc-600 size-5" />}
+          <input
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="Search products..."
+            className="w-full border pl-9 rounded-lg px-3 py-2"
+          />
+          {input && (
+            <X
+              className="absolute right-2 top-2 hover:bg-gray-200 rounded-full p-1 cursor-pointer"
+              onClick={() => {
+                setInput("");
+                router.replace(routes.search);
+              }}
+            />
+          )}
+        </div>
+      </div>
 
-      <form onSubmit={handleSubmit} className="flex gap-2">
-        <input
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Search products..."
-          className="flex-1 border rounded-lg px-3 py-2"
-        />
-        <button type="submit" className="border rounded-lg px-4 py-2">
-          Search
-        </button>
-      </form>
+      {!searchTerm && <FeaturedProducts />}
 
-      {!searchTerm && (
-        <p className="text-zinc-600">Type a keyword to search products.</p>
-      )}
-
-      {searchTerm && isFetching && <p>Searching...</p>}
+      {searchTerm && isLoading && <p>Searching...</p>}
 
       {searchTerm && isError && (
         <p className="text-red-600">{(error as Error).message}</p>
       )}
 
-      {searchTerm && !isFetching && !isError && products.length > 0 && (
+      {searchTerm && !isLoading && !isError && !!products.length && (
         <>
           <p className="text-zinc-600">
-            {products.length} result(s) for "{searchTerm}"
+            {products.length} matching result(s) for <b>"{searchTerm}"</b>
           </p>
           <ProductGrid products={products} />
         </>
       )}
 
-      {searchTerm && !isFetching && !isError && products.length === 0 && (
+      {searchTerm && !isLoading && !isError && !products.length && (
         <p className="text-zinc-600">
-          No products found for "{searchTerm}".
+          No products found for <b>"{searchTerm}"</b>.
         </p>
       )}
     </main>

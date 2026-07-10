@@ -29,7 +29,7 @@ export function PageSkeleton({ variant = "home" }: PageSkeletonProps) {
 
   // home variant
   return (
-    <main className="max-w-6xl mx-auto p-4  space-y-8">
+    <main className="max-w-6xl mx-auto p-4 space-y-8">
       <Block className="h-8 w-32" />
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {Array.from({ length: 4 }).map((_, i) => (
