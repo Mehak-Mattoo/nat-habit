@@ -1,4 +1,5 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app) with 100% lighthouse performance.<img width="959" height="371" alt="image" src="https://github.com/user-attachments/assets/52bd5ccf-1918-4167-9cbe-fe5d3156083a" />
+
 
 ## Getting Started
 
