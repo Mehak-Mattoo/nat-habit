@@ -47,14 +47,14 @@ export default function SearchPage() {
   const products = data?.products ?? [];
 
   return (
-    <main className="min-w-screen-lg mx-auto p-4 space-y-6">
+    <main className="max-w-6xl mx-auto p-4 space-y-8">
       <div className="flex flex-1 w-full gap-2">
         <div className="relative flex-1">
-          {<Search className="absolute left-2 top-2.5 text-zinc-600 size-5" />}
+          {<Search className="absolute left-2 top-2.5 text-white/90 md:size-5 size-4" />}
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="Search products..."
+            placeholder="Search hair oils, serums and more..."
             className="w-full border pl-9 rounded-lg px-3 py-2"
           />
           {input && (
@@ -79,7 +79,7 @@ export default function SearchPage() {
 
       {searchTerm && !isLoading && !isError && !!products.length && (
         <>
-          <p className="text-zinc-600">
+          <p className="text-white/90">
             {products.length} matching result(s) for <b>"{searchTerm}"</b>
           </p>
           <ProductGrid products={products} />
@@ -87,7 +87,7 @@ export default function SearchPage() {
       )}
 
       {searchTerm && !isLoading && !isError && !products.length && (
-        <p className="text-zinc-600">
+        <p className="text-white/90">
           No products found for <b>"{searchTerm}"</b>.
         </p>
       )}

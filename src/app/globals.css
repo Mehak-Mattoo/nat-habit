@@ -10,9 +10,9 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --color-green: #a5af79;
+  --color-green: #B87C4C;
   --color-brown: #827148;
-  --color-coral: #e8a07c;
+  --color-coral: #DAA464;
 }
 
 body {

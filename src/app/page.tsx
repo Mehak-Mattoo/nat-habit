@@ -16,11 +16,11 @@ export default async function Home() {
   return (
     <div className="flex flex-col flex-1 items-center justify-center font-sans">
       <main className="max-w-6xl mx-auto p-4 space-y-8">
+        <h1 className="sr-only">Nat Habit Store</h1>
         <CategoryList categories={categories} />
         {/* <PageSkeleton variant="home" /> */}
-      
         <FeaturedProducts />
-        <h3 className=" font-medium">All products</h3>
+        <h2 className=" font-medium">All products</h2>
         <ProductGrid products={products} /> {/* All products */}
       </main>
     </div>

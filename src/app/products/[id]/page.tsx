@@ -43,7 +43,7 @@ export default async function ProductDetailPage({ params }: Props) {
           </div>
           <span className="font-medium ">Category:</span>{" "}
           <span className="capitalize">{product.category}</span>
-          <p className="text-zinc-600 ">{subtitle}</p>
+          <p className="text-white/90 ">{subtitle}</p>
         
           <h4 className=" font-semibold">${price}</h4>
           {/* live stock (client component) */}
