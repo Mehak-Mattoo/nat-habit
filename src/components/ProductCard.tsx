@@ -23,14 +23,14 @@ export default function ProductCard({ product }: { product: Product }) {
           <p>{product.rating.toFixed(1)} ★ </p>
         </div>
       </div>
-      <div className="flex flex-col gap-2 p-3 bg-green-dark rounded-b-md group-hover:bg-green-dark transition-colors duration-300 text-white ">
+      <div className="flex flex-col gap-2 p-3 bg-green-dark rounded-b-md group-hover:bg-green-dark transition-colors duration-300 text-amber-100 ">
         <div className="flex flex-col ">
-          <p className="">{product.title}</p>
-          <p className=" text-foreground">
+          <p className="font-medium">{product.title}</p>
+          <p className=" text-white">
             {product.description.slice(0, 100)}...
           </p>
         </div>
-        <p className="text-xl font-semibold">${product.price}</p>
+        <p className="font-semibold">${product.price}</p>
       </div>
     </Link>
   );
