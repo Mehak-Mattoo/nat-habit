@@ -11,7 +11,7 @@ export default function ProductCard({ product }: { product: Product }) {
     >
       <div className="relative w-full h-40 sm:h-48 md:h-72 overflow-hidden rounded-t-md">
         <Image
-          src={product.thumbnail}
+          src={product.images?.[0] ?? product.thumbnail}
           alt={product.title}
           fill
           sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, 25vw"
@@ -26,9 +26,7 @@ export default function ProductCard({ product }: { product: Product }) {
       <div className="flex flex-col gap-2 p-3 bg-green-dark rounded-b-md group-hover:bg-green-dark transition-colors duration-300 text-amber-100 ">
         <div className="flex flex-col ">
           <p className="font-medium">{product.title}</p>
-          <p className=" text-white">
-            {product.description.slice(0, 100)}...
-          </p>
+          <p className=" text-white">{product.description.slice(0, 100)}...</p>
         </div>
         <p className="font-semibold">${product.price}</p>
       </div>

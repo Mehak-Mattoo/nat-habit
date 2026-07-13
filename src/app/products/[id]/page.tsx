@@ -41,7 +41,7 @@ export default async function ProductDetailPage({ params }: Props) {
   const featured = featuredProducts.find((p) => p.id === Number(id));
 
   const title = featured?.title ?? product.title;
-  const image = featured?.image ?? product.thumbnail;
+  const image = featured?.image ?? product.images?.[0] ?? product.thumbnail;
   const price = featured?.price ?? product.price;
   const description = featured?.description ?? product.description;
 

@@ -47,7 +47,7 @@ export default function SearchPage() {
   const products = data?.products ?? [];
 
   return (
-    <main className="max-w-6xl mx-auto p-4 space-y-8">
+    <main className="max-w-6xl mx-auto w-full p-4 space-y-8">
       <h1 className="sr-only">Search</h1>
       <div className="flex flex-1 w-full gap-2">
         <div className="relative flex-1">
