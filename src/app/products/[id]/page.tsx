@@ -62,7 +62,7 @@ export default async function ProductDetailPage({ params }: Props) {
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <h1 className="font-semibold">{title}</h1>
-            <div className="flex items-center justify-center gap-1 bg-coral-dark text-white rounded-full px-2 py-1">
+            <div className="flex items-center justify-center gap-1 bg-coral text-white rounded-full px-2 py-1">
               <p>{product.rating}</p>
              <div className="flex items-center justify-center"> <Star className="w-4 h-4" fill="currentColor" /> </div>
             </div>

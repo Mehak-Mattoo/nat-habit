@@ -20,7 +20,7 @@ export default function ProductCard({ product }: { product: Product }) {
         />
       </div>
       <div className="absolute top-2 right-2">
-        <div className="flex items-center justify-center gap-1  bg-coral-dark text-white rounded-full px-2 py-1">
+        <div className="flex items-center justify-center gap-1  bg-coral text-white rounded-full px-2 py-1">
           <p>{product.rating.toFixed(1)} </p>
           <div className="flex items-center justify-center">
           

@@ -26,7 +26,7 @@ export default function FeaturedProducts() {
             </div>
 
             <div className="absolute right-2 top-2">
-              <div className="flex items-center justify-center bg-coral-dark text-white rounded-full px-2 py-1">
+              <div className="flex items-center justify-center bg-coral text-white rounded-full px-2 py-1">
                 <span>Featured </span>
               </div>
             </div>
