@@ -2,9 +2,9 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getProductById } from "@/lib/api";
 import StockBadge from "@/components/products/Stockbadge";
-import { PageSkeleton } from "@/components/skeleton/Skeleton";
 import { featuredProducts } from "@/lib/featuredProducts";
 import { Metadata } from "next";
+import { Star } from "lucide-react";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -44,6 +44,7 @@ export default async function ProductDetailPage({ params }: Props) {
   const image = featured?.image ?? product.images?.[0] ?? product.thumbnail;
   const price = featured?.price ?? product.price;
   const description = featured?.description ?? product.description;
+  const category = featured?.category ?? product.category;
 
   return (
     <>
@@ -60,20 +61,20 @@ export default async function ProductDetailPage({ params }: Props) {
         </div>
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <h1 className="font-bold">{title}</h1>
-            <div className="flex items-center justify-center bg-coral text-white rounded-full px-2 py-1">
-              <p>★ {product.rating}</p>
+            <h1 className="font-semibold">{title}</h1>
+            <div className="flex items-center justify-center gap-1 bg-coral-dark text-white rounded-full px-2 py-1">
+              <p>{product.rating}</p>
+             <div className="flex items-center justify-center"> <Star className="w-4 h-4" fill="currentColor" /> </div>
             </div>
           </div>
           <span className="font-medium ">Category:</span>{" "}
-          <span className="capitalize">{product.category}</span>
+          <span className="capitalize">{category}</span>
           <p className=" ">{description}</p>
           <p className=" font-semibold">${price}</p>
-          {/* live stock (client component) */}
+
           <StockBadge productId={product.id} initialStock={product.stock} />
         </div>
       </main>
-      {/* <PageSkeleton variant="product" /> */}
     </>
   );
 }

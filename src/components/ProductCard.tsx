@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Product } from "@/lib/types";
 import { routes } from "@/lib/routes";
+import { Star } from "lucide-react";
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
@@ -19,8 +20,12 @@ export default function ProductCard({ product }: { product: Product }) {
         />
       </div>
       <div className="absolute top-2 right-2">
-        <div className="flex items-center justify-center  bg-coral-dark text-white rounded-full px-2 py-1">
-          <p>{product.rating.toFixed(1)} ★ </p>
+        <div className="flex items-center justify-center gap-1  bg-coral-dark text-white rounded-full px-2 py-1">
+          <p>{product.rating.toFixed(1)} </p>
+          <div className="flex items-center justify-center">
+          
+            <Star className="w-4 h-4" fill="currentColor" />
+          </div>
         </div>
       </div>
       <div className="flex flex-col gap-2 p-3 bg-green-dark rounded-b-md group-hover:bg-green-dark transition-colors duration-300 text-amber-100 ">
