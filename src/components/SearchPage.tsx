@@ -29,7 +29,7 @@ export default function SearchPage() {
     const trimmedInput = input.trim();
 
     const timer = setTimeout(() => {
-      const current = searchParams.get("q") ?? "";
+      const current = searchParams.get("q");
 
       // only update URL if it actually changed
       if (trimmedInput === current) return;
@@ -44,7 +44,7 @@ export default function SearchPage() {
     return () => clearTimeout(timer);
   }, [input, router, searchParams]);
 
-  const products = data?.products ?? [];
+  const products = data?.products;
 
   return (
     <main className="max-w-6xl mx-auto w-full p-4 space-y-8">

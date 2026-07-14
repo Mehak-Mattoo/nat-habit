@@ -15,7 +15,7 @@ export default function ProductCard({ product }: { product: Product }) {
           src={product.images?.[0] ?? product.thumbnail}
           alt={product.title}
           fill
-          sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, 25vw"
+          sizes="(max-width: 768px) 50vw, 25vw"
           className="object-contain w-full h-full group-hover:scale-95 transition-transform duration-300"
         />
       </div>
@@ -23,7 +23,6 @@ export default function ProductCard({ product }: { product: Product }) {
         <div className="flex items-center justify-center gap-1  bg-coral text-white rounded-full px-2 py-1">
           <p>{product.rating.toFixed(1)} </p>
           <div className="flex items-center justify-center">
-          
             <Star className="w-4 h-4" fill="currentColor" />
           </div>
         </div>

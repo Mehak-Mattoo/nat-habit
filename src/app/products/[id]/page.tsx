@@ -72,7 +72,7 @@ export default async function ProductDetailPage({ params }: Props) {
           <p className=" ">{description}</p>
           <p className=" font-semibold">${price}</p>
 
-          <StockBadge productId={product.id} initialStock={product.stock} />
+          <StockBadge productId={product.id} stock={product.stock} />
         </div>
       </main>
     </>

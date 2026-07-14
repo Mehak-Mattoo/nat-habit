@@ -5,12 +5,12 @@ import { stockQuery } from "@/lib/client-apis";
 
 export default function StockBadge({
   productId,
-  initialStock,
+  stock,
 }: {
   productId: number;
-  initialStock: number;
+  stock: number;
 }) {
-  const { data: stock = initialStock, isLoading , error } = useQuery(
+  const { data= stock , isLoading , error } = useQuery(
     stockQuery(productId),
   );
 

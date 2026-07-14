@@ -20,7 +20,7 @@ export default function FeaturedProducts() {
                 alt={product.title}
                 fill
                 priority={index === 0}
-                sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, 25vw"
+                sizes="(max-width: 768px) 50vw, 25vw"
                 className="object-contain w-full h-full group-hover:scale-95 transition-transform duration-300"
               />
             </div>
