@@ -58,7 +58,7 @@ export default function SearchPage() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Search hair oils, serums and more..."
-            className="w-full border pl-9 rounded-lg px-3 py-2"
+            className="w-full border pl-9 rounded-lg px-3 py-2 "
           />
           {input && (
             <X
