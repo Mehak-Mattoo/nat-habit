@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const description = (featured?.description ?? product.description).slice(0, 160);
   const image = featured?.image ?? product.thumbnail;
   return {
-    title, // becomes "Fresh Netraa Eye Cream | Nat Habit"
+    title, 
     description,
     openGraph: {
       title,
@@ -47,15 +47,17 @@ export default async function ProductDetailPage({ params }: Props) {
 
   return (
     <>
-      <main className="max-w-6xl mx-auto p-4 grid md:grid-cols-2 gap-8">
-        <Image
-          src={image}
-          alt={title}
-          width={500}
-          height={200}
-          priority
-          className=" bg-white w-full rounded-md h-full "
-        />
+      <main className="max-w-6xl mx-auto p-4 grid sm:grid-cols-2 gap-8">
+        <div className="relative w-full aspect-square overflow-hidden">
+          <Image
+            src={image}
+            alt={title}
+            fill
+            priority
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-contain p-4"
+          />
+        </div>
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <h1 className="font-bold">{title}</h1>
@@ -66,7 +68,6 @@ export default async function ProductDetailPage({ params }: Props) {
           <span className="font-medium ">Category:</span>{" "}
           <span className="capitalize">{product.category}</span>
           <p className=" ">{description}</p>
-        
           <p className=" font-semibold">${price}</p>
           {/* live stock (client component) */}
           <StockBadge productId={product.id} initialStock={product.stock} />
